@@ -1,2 +1,2 @@
-# online-learning-management-portal
+# A Online Learning Management Portal
 The "Online Learning Management Portal" project aims to create a comprehensive and intelligent platform for managing online education. Utilizing Python and Django for the backend, the system provides a robust foundation for handling various educational functions and data management. 
