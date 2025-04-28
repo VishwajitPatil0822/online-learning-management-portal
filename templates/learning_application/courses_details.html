@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/courses_details.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container" id="container1">
+    <div class="container" id="container2">
+        <h1 class="course-title">{{ course.title }}</h1>
+        <h6 class="course-subtitle">
+            Category: {{ course.category }} &emsp;&emsp;&emsp;&emsp; Language: {{ course.language }}
+        </h6>
+        <hr>
+
+        <div class="course-header mt-5 mb-5">
+            <div class="container_data">
+                <h2>Title: {{ course.title }}</h2>
+                <h6>{{ course.one_line_description }}</h6>
+            </div>
+            <div class="container_img">
+                <img class="style1" src="{{ course.photo.url }}" alt="Course Image">
+            </div>
+        </div>
+
+        <hr>
+
+        <h1 class="mt-5">Description:</h1>
+        <p class="description mt-4 mb-5">{{ course.full_description }}</p>
+
+        <hr>
+
+        <div class="enroll-btn-wrapper mt-5">
+            <a class="button1" href="{% url 'app_course_view_urls' course.id %}">
+                Enroll For Free
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

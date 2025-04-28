@@ -1,0 +1,12 @@
+.button_home {
+  position: relative;
+  overflow: hidden;
+  height: 2.5rem;
+  padding: 0rem 2rem 0.2rem;
+  border-radius: 1.5rem;
+  background: White;
+  background-size: 400%;
+  color: black;
+  font-size: 20px;
+  border: none;
+}

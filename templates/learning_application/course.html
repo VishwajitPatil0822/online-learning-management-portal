@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container" id="container1">
+    <div class="container" id="container2">
+        <h1 class="course-title">{{ course.title }}</h1>
+        <h6 class="course-subtitle">
+            Category: {{ course.category }} &emsp;&emsp;&emsp;&emsp; Language: {{ course.language }}
+        </h6>
+        <hr>
+
+        <div class="video-wrapper mt-5">
+            <video controls>
+                <source src="{{ course.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <hr class="mt-5">
+
+        <div class="enroll-btn-wrapper mt-5">
+            <a class="button1" href="{% url 'quiz_view_urls' course.id %}">
+                Ready For Test
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

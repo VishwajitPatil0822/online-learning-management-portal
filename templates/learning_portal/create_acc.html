@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title xmlns="http://www.w3.org/1999/html">About Us Page</title>
+    <link rel="stylesheet"  href="{% static 'css/create_acc.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="container1">
+        <div class="heading">Create An Account</div>
+            <form method="POST" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <img class="input2" src="{% static 'media/men.jpg' %}" width="250" height="250">
+                <label class="input3" for="photo">
+                    <i style="font-size:18px; color: blue;" class="fa">&#xf030;</i>
+                </label>
+                <input required="" class="input1" type="file" name="photo" id="photo" hidden>
+                <input required="" class="input" type="text" name="name" id="name" placeholder="Enter Your Full Name">
+                <input required="" class="input" type="email" name="email" id="email" placeholder="Enter Your Email">
+                <input required="" class="input" type="number" name="number" id="number" placeholder="Enter Your Number">
+                <input required="" class="input" type="date" name="dob" id="dob" placeholder="Enter Your Date Of Birth">
+
+                <select required class="input" name="gender" id="gender">
+                  <option value="" disabled selected>Select Your Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+                <input required="" class="input" type="password" name="password" id="password" placeholder="Password">
+                <input class="login-button" type="submit" value="Submit">
+                <input class="login-button" type="reset" value="Reset">
+            </form>
+    </div>
+     <p style="margin-bottom :100px;"> </p>
+{% endblock %}

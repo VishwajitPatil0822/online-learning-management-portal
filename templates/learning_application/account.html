@@ -1,0 +1,104 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>Account Page</title>
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+<div class = 'container jumbotron mt-4'>
+    <h1 class="text-center"> My Account </h1><br>
+    <div class="container">
+        <div class="card">
+
+            <div style="position: relative; display: inline-block;" class="ml-auto" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+                <i class="fa fa-gear" style=" color: black; font-size: 24px; border: none; cursor: pointer; border-radius: 5px;"></i>
+                <div id="myDropdown" style="display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; z-index: 1; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); border-radius: 5px;">
+                    <a href="{% url 'app_update_account_view_urls' user.id %}" style="color: black; padding: 12px 16px; text-decoration: none; display: block;">Update Account</a>
+                    <a href="{% url 'app_delete_account_view_urls' user.id %}" style="color: black; padding: 12px 16px; text-decoration: none; display: block;">Delete Account</a>
+                </div>
+            </div>
+            <script>
+                function showDropdown() {
+                    document.getElementById("myDropdown").style.display = "block";
+                }
+                function hideDropdown() {
+                    document.getElementById("myDropdown").style.display = "none";
+                }
+            </script>
+
+            <div class="infos justify-content-center">
+                <div class="content">
+                        <div class="oven">
+                            <img src="{{ user.photo.url }}">
+                        </div>
+                </div>
+                <div class="infos">
+                    <div>
+                        <style>
+                            .table_one, .table_one th, .table_one td, .table_one tr, .table_one thead, .table_one tbody {
+                                border-color: transparent;
+                            }
+                            .name_one {
+                                white-space: nowrap;
+                                font-weight: bold;
+                                font-size: 18px;
+                                margin-top: 10px;
+                                font-size: 2.5rem;
+                                line-height: 2rem;
+                                font-weight: 500;
+                                color: rgba(0, 0, 0, 1);
+                            }
+                            .info-cell {
+                                padding: 10px 10px;
+                                vertical-align: top;
+                            }
+                        </style>
+
+                        <table class="table_one">
+                            <tbody>
+                                <tr>
+                                    <td class="info-cell">
+                                        <p class="name_one mb-5" style="margin-top:55px; font-size: 3rem;"> {{ user.name }} </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <style>
+                            .table,
+                            .table th,
+                            .table td,
+                            .table tr,
+                            .table thead,
+                            .table tbody {
+                                border-color: transparent;
+                            }
+                        </style>
+
+                        <table class="table" >
+                            <thead>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td class="function">Phone No: &nbsp; {{ user.number }}</td>
+                                  <td class="function" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: &nbsp; {{ user.email }}</td>
+                                </tr>
+                                <tr>
+                                  <td class="function">Date Of Birth: &nbsp; {{ user.dob }}</td>
+                                  <td class="function" style="text-transform: capitalize;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender: &nbsp; {{ user.gender }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

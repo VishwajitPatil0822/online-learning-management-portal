@@ -1,0 +1,85 @@
+.card {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 900px;
+  width: 90%;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Light transparent */
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.infos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap; /* Mobile friendly */
+}
+
+.oven {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 5px solid rgb(255, 193, 7);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.oven img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name_one {
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.table_one, .table_one td {
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 5px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.function {
+  padding-right: 20px;
+}
+
+/* Dropdown menu style */
+.dropdown-menu {
+  min-width: 150px;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive Settings */
+@media (max-width: 768px) {
+  .infos {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-details {
+    align-items: center;
+  }
+}

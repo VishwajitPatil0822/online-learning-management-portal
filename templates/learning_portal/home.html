@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/image_slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="home-section" id="container3">
+        <div class="home-text">
+            <b><p class="home-title">Abc Learning</p></b>
+            <h5 class="home-subtitle">Empowering your future</h5>
+            <h5 class="home-subsubtitle">with knowledge, anytime, anywhere.</h5>
+        </div>
+        <div class="home-image">
+            <img src="{% static 'media/home.png' %}" class="home-img" alt="Home Image">
+        </div>
+    </div>
+
+    <div class="container" id="container2">
+        <div class="center-content">
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/people-image.png' %}" style="margin-left: -20px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ members_count }} Plus </h3>
+                    <h6 class="text2">Members</h6>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/online-course.png' %}" style="margin-left: 40px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ courses_count }} Plus </h3>
+                    <h6 class="text2">Courses</h6>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/category.png' %}" style="margin-left: 40px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ categories_count }} Plus </h3>
+                    <h6 class="text2">Categories</h6>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/language.png' %}" style="margin-left: 40px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ language_count }} Plus </h3>
+                    <h6 class="text2">Languages</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="container1">
+        <section>
+            <div style="align-items: center;">
+                <h1 style="margin-left:40px; margin-top: 10px; color: rgb(220, 50, 65);"> Courses By Category: </h1>
+            </div>
+            <div class="mt-5 card-container" >
+                <div class="card1">
+                    <div class="card1_img">
+                        <img src="{% static 'media/ms-logo.png' %}"  alt="Image description">
+                    </div>
+                    <div class="card1_textBox">
+                        <div class="card1_textContent">
+                            <a href="{% url 'login_view_urls' %}" class="card1_h1">Microsoft Office</a>
+                        </div>
+                        <a href="{% url 'login_view_urls' %}" class="card1_p">Find out more</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="card1_img">
+                        <img src="{% static 'media/programming-logo.jpg' %}"  alt="Image description">
+                    </div>
+                    <div class="card1_textBox">
+                        <div class="card1_textContent">
+                            <a href="{% url 'login_view_urls' %}" class="card1_h1">Programming</a>
+                        </div>
+                        <a href="{% url 'login_view_urls' %}" class="card1_p">Find out more</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="card1_img">
+                        <img src="{% static 'media/stock-market.jpg' %}"  alt="Image description">
+                    </div>
+                    <div class="card1_textBox">
+                        <div class="card1_textContent">
+                            <a href="{% url 'login_view_urls' %}" class="card1_h1">Stock Market</a>
+                        </div>
+                        <a href="{% url 'login_view_urls' %}" class="card1_p">Find out more</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="card1_img">
+                        <img src="{% static 'media/personal-development.jpg' %}"  alt="Image description">
+                    </div>
+                    <div class="card1_textBox">
+                        <div class="card1_textContent">
+                            <a href="{% url 'login_view_urls' %}" class="card1_h1">Personal Development</a>
+                        </div>
+                        <a href="{% url 'login_view_urls' %}" class="card1_p">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div style="align-items: center;">
+                <h1 style="margin-left:40px; margin-top: 100px; color: rgb(220, 50, 65);"> Our Top Courses: </h1>
+            </div>
+
+            <div class="mt-5 card-container">
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{% static 'media/word.png' %}"  alt="Image description">
+                    </div>
+                    <div class="content mt-2">
+                        <a href="{% url 'login_view_urls' %}">
+                            <span class="title">
+                                Microsoft Word Course
+                            </span>
+                        </a>
+                        <p class="desc">
+                            MS Word is a part of MS Office Suite. It is used for creating documents, reports, etc.
+                        </p>
+                        <a class="card2_p" href="{% url 'login_view_urls' %}" style="position: relative; top: 06px; left: 65px;">
+                            Find out more
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{% static 'media/powerpoint.png' %}"  alt="Image description">
+                    </div>
+                    <div class="content  mt-2">
+                        <a href="{% url 'login_view_urls' %}">
+                            <span class="title">
+                                Microsoft PowerPoint Course
+                            </span>
+                        </a>
+                        <p class="desc">
+                            MS PowerPoint is a part of the MS Office Suite. It's used for creating presentations.
+                        </p>
+                        <a class="card2_p" href="{% url 'login_view_urls' %}" style="position: relative; top: 06px; left: 65px;">
+                            Find out more
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{% static 'media/excel.png' %}"  alt="Image description">
+                    </div>
+                    <div class="content  mt-2">
+                        <a href="{% url 'login_view_urls' %}">
+                            <span class="title">
+                                Microsoft Excel Course
+                            </span>
+                        </a>
+                        <p class="desc">
+                            MS Excel is part of the MS Office Suite. It is used for creating spreadsheets.
+                        </p>
+                        <a class="card2_p" href="{% url 'login_view_urls' %}" style="position: relative; top: 06px; left: 65px;">
+                            Find out more
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{% static 'media/python.png' %}"  alt="Image description">
+                    </div>
+                    <div class="content  mt-2">
+                        <a href="{% url 'login_view_urls' %}">
+                            <span class="title">
+                                Python Programming Course
+                            </span>
+                        </a>
+                        <p class="desc">
+                            Python is a high-level language. It is widely used for web development & more.
+                        </p>
+                        <a class="card3_p" href="{% url 'login_view_urls' %}" style="position: relative; top: -15px; left: 65px;">
+                            Find out more
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+                    </div>
+                </div>
+        </section>
+        <br><br>
+    </div>
+    <p style="margin-bottom :100px;"></p>
+
+<script type="text/javascript" src="{% static 'js/image_slider.js' %}"></script>
+
+{% endblock %}

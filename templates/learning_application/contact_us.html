@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>Contact Us Page</title>
+    <link rel="stylesheet" href="{% static 'css/contact_us.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="container1">
+        <div class="heading">Contact Us</div>
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <input required="" class="input" type="text" name="name" id="name" placeholder="Enter Your Full Name">
+                <input required="" class="input" type="email" name="email" id="email" placeholder="Enter Your Email">
+                <input required="" class="input" type="number" name="number" id="number" placeholder="Enter Your Number">
+                <textarea required="" class="input" name="message" id="message" rows="8" placeholder="Enter Your message"></textarea>
+
+                <input class="login-button" type="submit" value="Submit">
+                <input class="login-button" type="reset" value="Reset">
+            </form>
+    </div>
+     <p style="margin-bottom :90px;"> </p>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>My Learning</title>
+    <link rel="stylesheet" href="{% static 'css/my_learning.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="container1">
+        <section>
+            <div style="align-items: center;">
+                <h1 style="margin-left:40px; margin-top: 20px; color: rgb(220, 50, 65);"> My Learning: </h1>
+            </div>
+            <div class="mt-5 card-container1">
+                {% for course in courses %}
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{{course.photo.url}}"  alt="Image description">
+                    </div>
+                    <div class="content1 mt-2">
+                        <a href="{% url 'app_course_view_urls' course.id %}">
+                            <span class="title">
+                                {{course.title}}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="content2">
+                        <p class="desc">
+                            {{course.one_line_description}}
+                        </p>
+                    </div>
+                    <a class="card2_p" style="margin-left: 3px; background-color: white; color: green;" href="{% url 'app_course_view_urls' course.id %}">
+                        Continue learning
+                    </a>
+                    <a class="card2_p" style="margin-left: 35px; background-color: white; color: red;" href="{% url 'delete_course_view_urls' course.id %}">
+                        Delete Course
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+    <p style="margin-bottom :70px;"></p>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="container1">
+        <div class="container" id="container2">
+            <h1 style="text-align: left; font-size: 42px; color: rgb(220, 50, 65);">{{ course.title }}</h1>
+            <h6 style="text-align: left; color: rgb(220, 50, 65);">
+                Category: {{ course.category }} &emsp;&emsp;&emsp;&emsp; Language: {{ course.language }}
+            </h6>
+            <hr style="width:100%;">
+
+            <!-- Certificate Section -->
+            <div id="certificate" class="mt-5 mb-5" style="position: relative; text-align: center;">
+                <img src="{% static 'media/course_completion_certificate.png' %}" alt="Certificate" width="100%">
+
+                <!-- User Name -->
+                <div style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%);
+                            font-size: 36px; font-weight: bold; color: black; white-space: nowrap;">
+                    {{ user.name }}
+                </div>
+
+                <!-- Course Title -->
+                <div style="position: absolute; top: 58%; left: 70%; transform: translate(-50%, -50%);
+                            font-size: 20px; color: black; white-space: nowrap;">
+                    {{ course.title }}
+                </div>
+            </div>
+
+            <!-- Download Button Centered -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-success" id="downloadBtn" onclick="downloadCertificate()">
+                    Download Certificate
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        function downloadCertificate() {
+            var certificate = document.getElementById("certificate");
+
+            html2canvas(certificate, { scale: 2, useCORS: true }).then(canvas => {
+                let link = document.createElement("a");
+                link.download = "{{ user.name }}_{{ course.title }}_Certificate.png";
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            });
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $("#downloadBtn").click(function() {
+                var certificate = document.getElementById("certificate");
+
+                html2canvas(certificate, { scale: 2 }).then(canvas => {
+                    let imageData = canvas.toDataURL("image/png");
+
+                    $.ajax({
+                        url: "{% url 'certificate_view_urls' course.id %}",
+                        type: "POST",
+                        data: {
+                            name: "{{ user.name }}",
+                            course_name: "{{ course.title }}",
+                            certificate: imageData,
+                            csrfmiddlewaretoken: "{{ csrf_token }}"
+                        },
+                        success: function(response) {
+                            if (response.status === "success") {
+                                let link = document.createElement("a");
+                                link.download = "{{ user.name }}_{{ course.title }}_Certificate.png";
+                                link.href = imageData;
+                                link.click();
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+{% endblock %}

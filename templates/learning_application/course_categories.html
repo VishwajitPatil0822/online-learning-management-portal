@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>My Learning</title>
+    <link rel="stylesheet" href="{% static 'css/course_categories.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="container1">
+
+        <h1 style="margin-left: 30px; font-size: 42px; color: rgb(220, 50, 65);"> {{category.category}}</h1>
+        <h6 style="margin-left: 40px; color: rgb(220, 50, 65);">Course: {{ courses_count }} courses</h6>
+        <hr style="width:100%;">
+
+        <section>
+            <div class="mt-5 card-container1">
+                {% for course in courses %}
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{{course.photo.url}}"  alt="Image description">
+                    </div>
+                    <div class="content1 mt-2">
+                        <a href="{% url 'app_courses_details_view_urls' course.id %}">
+                            <span class="title">
+                                {{course.title}}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="content2">
+                        <p class="desc">
+                            {{course.one_line_description}}
+                        </p>
+                    </div>
+                    <a class="card2_p" href="{% url 'app_courses_details_view_urls' course.id %}">
+                        Find out more
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+    <p style="margin-bottom :70px;"></p>
+{% endblock %}

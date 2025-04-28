@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>Update Account</title>
+    <link rel="stylesheet" href="{% static 'css/create_acc.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="container1">
+        <div class="heading">Update Your Account</div>
+        <form method="POST" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <img class="input2" src="{{ account.photo.url }}" width="250" height="250">
+            <label class="input3" for="photo">
+                <i style="font-size:18px; color: blue;" class="fa">&#xf030;</i>
+            </label>
+            <input class="input1" type="file" name="photo" id="photo" hidden>
+
+            <input class="input" type="text" name="name" id="name" value="{{ account.name }}" required>
+            <input class="input" type="email" name="email" id="email" value="{{ account.email }}" required>
+            <input class="input" type="number" name="number" id="number" value="{{ account.number }}" required>
+            <input class="input" type="date" name="dob" id="dob" value="{{ account.dob|date:'Y-m-d' }}" required>
+
+            <select class="input" name="gender" id="gender" required>
+                <option value="male" >Male</option>
+                <option value="female" >Female</option>
+                <option value="other" >Other</option>
+            </select>
+
+            <input class="input" type="password" name="password" id="password" placeholder="New Password (Leave blank to keep old password)">
+            <input class="login-button" type="submit" value="Update">
+            <input class="login-button" type="reset" value="Reset">
+        </form>
+    </div>
+    <p style="margin-bottom :100px;"></p>
+{% endblock %}

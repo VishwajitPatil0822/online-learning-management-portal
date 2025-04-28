@@ -1,0 +1,114 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/app_home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="home-section" id="container3">
+        <div class="home-text">
+            <b><p class="home-title">Abc Learning</p></b>
+            <h5 class="home-subtitle">Empowering your future</h5>
+            <h5 class="home-subsubtitle">with knowledge, anytime, anywhere.</h5>
+        </div>
+        <div class="home-image">
+            <img src="{% static 'media/home.png' %}" class="home-img" alt="Home Image">
+        </div>
+    </div>
+
+    <div class="container" id="container2">
+        <div class="center-content">
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/people-image.png' %}" style="margin-left: -20px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ members_count }} Plus </h3>
+                    <h6 class="text2">Members</h6>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/online-course.png' %}" style="margin-left: 40px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ courses_count }} Plus </h3>
+                    <h6 class="text2">Courses</h6>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/category.png' %}" style="margin-left: 40px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ categories_count }} Plus </h3>
+                    <h6 class="text2">Categories</h6>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <img class="icon-image" src="{% static 'media/language.png' %}" style="margin-left: 40px;">
+                <div class="text-container">
+                    <h3 class="text1"> {{ language_count }} Plus </h3>
+                    <h6 class="text2">Languages</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="container1">
+        <section>
+            <div style="align-items: center;">
+                <h1 style="margin-left:40px; margin-top: 20px; color: rgb(220, 50, 65);"> Courses By Category: </h1>
+            </div>
+            <div class="mt-5 card-container">
+                {% for category in categories %}
+                    <div class="card1">
+                        <div class="card1_img">
+                            <img src="{{ category.photo.url }}" alt="Image description">
+                        </div>
+                        <div class="card1_textBox">
+                            <div class="card1_textContent">
+                                <a href="{% url 'app_course_categories_view_urls' category.id %}" class="card1_h1">{{ category.category}}</a>
+                            </div>
+                            <a href="{% url 'app_course_categories_view_urls' category.id %}" class="card1_p">
+                                {{ category.courses_count }} courses
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <div style="align-items: center;">
+                <h1 style="margin-left:40px; margin-top: 100px; color: rgb(220, 50, 65);"> Our Top Courses: </h1>
+            </div>
+
+            <div class="mt-5 card-container1">
+                {% for course in courses %}
+                <div class="card2">
+                    <div class="card2_img">
+                        <img src="{{course.photo.url}}"  alt="Image description">
+                    </div>
+                    <div class="content1 mt-2">
+                        <a href="{% url 'app_courses_details_view_urls' course.id %}">
+                            <span class="title">
+                                {{course.title}}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="content2">
+                        <p class="desc">
+                            {{course.one_line_description}}
+                        </p>
+                    </div>
+                    <a class="card2_p" href="{% url 'app_courses_details_view_urls' course.id %}">
+                        Find out more
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <br><br>
+    </div>
+
+{% endblock %}

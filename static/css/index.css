@@ -1,0 +1,39 @@
+.oven_image img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 70%;
+}
+
+.custom-font {
+  font-family: 'Book Antiqua', sans-serif;
+  font-size: 27px !important;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border-radius: 1.5rem;
+  background: White;
+  background-size: 400%;
+  color: black;
+  font-size: 20px;
+  border: none;
+
+}
+
+.button_home {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0.5rem 2rem;
+  border-radius: 1.5rem;
+  background: White;
+  background-size: 400%;
+  color: black;
+  font-size: 20px;
+  border: none;
+}
+

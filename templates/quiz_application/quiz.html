@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>{{ course.title }} Quiz Test</title>
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="container1">
+        <div class="container" id="container2">
+            <h1 style="text-align: left; font-size: 42px; color: rgb(220, 50, 65);">{{ course.title }} Quiz Test</h1>
+            <h6 style="text-align: left; color: rgb(220, 50, 65);">Category: {{ course.category }} &emsp;&emsp;&emsp;&emsp;&emsp; Course Language: {{ course.language }}</h6>
+            <hr style="width:100%;">
+
+            <div style="display: flex; justify-content: flex-end; align-items: center;">
+                <h3>Time Left: <span id="timer">10:00</span></h3>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {% for question in questions %}
+                    <fieldset class="mb-5 mt-5">
+                        <legend>{{ forloop.counter }}. {{ question.question }}</legend>
+                        <input style="margin-left: 30px;" type="radio" name="{{ question.id }}" value="{{ question.option1 }}"> {{ question.option1 }}<br>
+                        <input style="margin-left: 30px;" type="radio" name="{{ question.id }}" value="{{ question.option2 }}"> {{ question.option2 }}<br>
+                        <input style="margin-left: 30px;" type="radio" name="{{ question.id }}" value="{{ question.option3 }}"> {{ question.option3 }}<br>
+                        <input style="margin-left: 30px;" type="radio" name="{{ question.id }}" value="{{ question.option4 }}"> {{ question.option4 }}<br>
+                    </fieldset>
+                {% endfor %}
+
+                <br>
+                <div style="display: flex; justify-content: flex-end; align-items: center;">
+                    <button class="btn btn-success col-2 mb-4 " style="margin-left: 900px;" type="submit">Submit</button>
+                </div>
+            </form>
+
+            <hr style="width:100%;">
+            <p class="mt-5"></p>
+
+            <script>
+                var timeLeft = 600; // 10 minutes in seconds
+                function startTimer() {
+                    var timer = setInterval(function () {
+                        var minutes = Math.floor(timeLeft / 60);
+                        var seconds = timeLeft % 60;
+                        document.getElementById("timer").innerText = minutes + " : " + (seconds < 10 ? "0" : "") + seconds;
+                        timeLeft--;
+
+                        if (timeLeft < 0) {
+                            clearInterval(timer);
+                            document.querySelector("form").submit();  // Auto-submit on timeout
+                        }
+                    }, 1000);
+                }
+                window.onload = startTimer;
+            </script>
+        </div>
+    </div>
+{% endblock %}
