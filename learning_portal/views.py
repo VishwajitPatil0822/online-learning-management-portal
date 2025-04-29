@@ -93,7 +93,7 @@ def create_account_view(request):
     context = {}
     return render(request,template_name,context)
 
-
+'''
 def app_home_view(request):
     template_name = 'learning_application/home.html'
     members_count = Create_Account.objects.count()
@@ -446,3 +446,4 @@ def app_delete_account_view(request, account_id):
     context = {"account": account}
 
     return render(request, template_name, context)
+'''
