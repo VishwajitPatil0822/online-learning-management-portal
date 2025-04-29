@@ -5,7 +5,7 @@
   max-width: 900px;
   width: 90%;
   border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.9); /* Light transparent */
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 2rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
@@ -16,7 +16,7 @@
   align-items: center;
   gap: 2rem;
   margin-top: 0.5rem;
-  flex-wrap: wrap; /* Mobile friendly */
+  flex-wrap: wrap;
 }
 
 .oven {
@@ -63,7 +63,6 @@
   padding-right: 20px;
 }
 
-/* Dropdown menu style */
 .dropdown-menu {
   min-width: 150px;
   font-size: 16px;
@@ -71,7 +70,6 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Responsive Settings */
 @media (max-width: 768px) {
   .infos {
     flex-direction: column;

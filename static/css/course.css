@@ -64,7 +64,6 @@
   border-color: #004d00;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .video-wrapper video {
     width: 90%;

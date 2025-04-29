@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -15,24 +15,20 @@
             </h6>
             <hr style="width:100%;">
 
-            <!-- Certificate Section -->
             <div id="certificate" class="mt-5 mb-5" style="position: relative; text-align: center;">
                 <img src="{% static 'media/course_completion_certificate.png' %}" alt="Certificate" width="100%">
 
-                <!-- User Name -->
                 <div style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%);
                             font-size: 36px; font-weight: bold; color: black; white-space: nowrap;">
                     {{ user.name }}
                 </div>
 
-                <!-- Course Title -->
                 <div style="position: absolute; top: 58%; left: 70%; transform: translate(-50%, -50%);
                             font-size: 20px; color: black; white-space: nowrap;">
                     {{ course.title }}
                 </div>
             </div>
 
-            <!-- Download Button Centered -->
             <div style="text-align: center; margin-top: 20px;">
                 <button class="btn btn-success" id="downloadBtn" onclick="downloadCertificate()">
                     Download Certificate
@@ -42,7 +38,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 

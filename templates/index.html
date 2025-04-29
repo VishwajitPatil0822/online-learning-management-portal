@@ -6,7 +6,7 @@
         {% block title %}
         <title>Base template</title>
         {% endblock %}
-        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login_button.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
@@ -14,59 +14,42 @@
     </head>
     <body>
         <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-danger">
-          <a class="navbar-brand text-white font-italic" style="font-size: 28px" href="#">
+          <a class="navbar-brand text-white font-italic" style="font-size: 28px;" href="#">
             <img src="{% static 'media/logo.png' %}" width="40" height="40" class="d-inline-block align-center" alt="">
             Abc Learning
           </a>
-                <div class="ml-auto" style="position: relative; display: inline-block;" onmouseover="showDropdowns()" onmouseout="hideDropdowns()">
-                    <button class="button " style="margin-left:270px;">
-                        <span class="button-content oven_image" >
-                            <img src="{{ user.photo.url }}">&nbsp;{{ user.name }}
-                        </span>
-                    </button>
-                    <div id="myDropdowns" style=" margin-left:350px; display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; z-index: 1; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); border-radius: 5px;">
-                        <a href="{% url 'app_account_view_urls' %}" style="color: black; padding: 12px 20px; text-decoration: none; display: block;">My Account</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="{% url 'app_logout_view_urls' %}" style="color: red; padding: 12px 20px; text-decoration: none; display: block;">Logout</a>
+            <ul class="nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle button_home" style="height: 50px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Login
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Admin</a>
+                        <a class="dropdown-item" href="{% url 'login_view_urls' %}">User</a>
                     </div>
-                </div>
-                <script>
-                    function showDropdowns() {
-                        document.getElementById("myDropdowns").style.display = "block";
-                    }
-                    function hideDropdowns() {
-                        document.getElementById("myDropdowns").style.display = "none";
-                    }
-                </script>
-          </div>
+                </li>
+            </ul>
         </nav>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(225, 6, 0, 0.2);">
 
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(225, 6, 0, 0.2);">
-
-  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav justify-content-center w-100">
-            <li class="nav-item ">
-                <a class="nav-link" style="color: black; margin-left:20px; font-weight: bold; font-size: 22px;" href="{% url 'app_home_view_urls' %}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: black; margin-left:20px; font-weight: bold; font-size: 22px;" href="{% url 'my_learning_view_urls' %}">My Learning</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: black; font-weight: bold; margin-left:20px; font-size: 22px;" href="{% url 'app_about_view_urls' %}">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: black; font-weight: bold; margin-left:20px; font-size: 22px;" href="{% url 'app_contact_us_view_urls' %}">Contact Us</a>
-            </li>
-        </ul>
-
-    </div>
-</nav>
-
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav justify-content-center w-100">
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color: black; margin-left:20px; font-weight: bold; font-size: 22px;" href="{% url 'home_view_urls' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black; margin-left:20px; font-weight: bold; font-size: 22px;" href="{% url 'about_view_urls' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black; font-weight: bold; margin-left:20px; font-size: 22px;" href="{% url 'contact_us_view_urls' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         {% block content %}
         {% endblock %}
@@ -104,10 +87,9 @@
               <div class="col-md-3 " style="margin-left:2px; margin-top:18px;">
                 <h5>Also Browse </h5>
                 <ul class="list-unstyled">
-                    <li><a href="{% url 'app_home_view_urls' %}" class="text-white" >Home</a></li>
-                    <li><a href="{% url 'my_learning_view_urls' %}" class="text-white" >My Learning</a></li>
-                    <li><a href="{% url 'app_about_view_urls' %}" class="text-white" >About Us</a></li>
-                    <li><a href="{% url 'app_contact_us_view_urls' %}" class="text-white" >Contact Us</a></li>
+                    <li><a href="{% url 'home_view_urls'%}" class="text-white" >Home</a></li>
+                    <li><a href="{% url 'about_view_urls'%}" class="text-white" >About Us</a></li>
+                    <li><a href="{% url 'contact_us_view_urls'%}" class="text-white" >Contact Us</a></li>
                 </ul>
                 </p>
               </div>
@@ -119,6 +101,5 @@
             </div>
           </div>
         </footer>
-
     </body>
 </html>

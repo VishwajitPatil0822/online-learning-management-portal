@@ -46,9 +46,6 @@
   font-size: 0.9rem;
 }
 
-
-
-
 .home-section {
   display: flex;
   flex-wrap: wrap;
@@ -91,10 +88,6 @@
   object-fit: contain;
 }
 
-
-
-
-
 #container1 {
   position: relative;
   max-width: 1600px;
@@ -112,10 +105,6 @@
   font-size: 30px;
   color: rgb(16, 137, 211);
 }
-
-
-
-
 
 .card-container {
   display: flex;
@@ -201,17 +190,6 @@
   white-space: nowrap;
   overflow: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .card-container1 {
   display: flex;
@@ -300,8 +278,6 @@
   overflow: hidden;
 }
 
-
-
 .center-content {
   display: flex;
   flex-wrap: wrap;
@@ -341,4 +317,3 @@
   margin: 4px 0 0;
   font-size: 0.9rem;
 }
-
