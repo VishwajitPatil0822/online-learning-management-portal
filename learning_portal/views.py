@@ -168,7 +168,7 @@ def app_contact_us_view(request):
 
         contact_us = Contact_Us(name=name, email=email, number=number, message=message)
         contact_us.save()
-        return redirect('home_view_urls')
+        return redirect('app_home_view_urls')
 
     context = {'user': user}
     return render(request,template_name,context)
