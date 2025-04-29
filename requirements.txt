@@ -2,7 +2,6 @@ asgiref==3.8.1
 dj-database-url==2.3.0
 Django==4.2.12
 pillow==11.1.0
-psycopg2==2.9.10
 psycopg2-binary==2.9.10
 python-dotenv==1.1.0
 setuptools==80.0.0
