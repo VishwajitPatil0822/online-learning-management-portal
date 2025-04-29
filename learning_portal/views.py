@@ -47,7 +47,7 @@ def contact_us_view(request):
 
 def login_view(request):
     template_name = 'learning_portal/login.html'
-
+'''
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -66,7 +66,7 @@ def login_view(request):
         except Create_Account.DoesNotExist:
             messages.error(request, "Your email id is incorrect.")
             return redirect('login_view_urls')
-
+'''
     context = {}
     return render(request,template_name,context)
 
