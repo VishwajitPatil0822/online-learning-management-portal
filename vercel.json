@@ -1,18 +1,27 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles_build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    }
-  ]
-}
+     "version": 2,
+     "builds": [
+       {
+         "src": "online_learning_management_portal/wsgi.py",
+         "use": "@vercel/python",
+         "config": { "maxLambdaSize": "55mb", "runtime": "python3.9" }
+       },
+       {
+         "src": "build_files.sh",
+         "use": "@vercel/static-build",
+         "config": {
+           "distDir": "staticfiles_build"
+         }
+       }
+     ],
+     "routes": [
+       {
+         "src": "/static/(.*)",
+         "dest": "/static/$1"
+       },
+       {
+         "src": "/(.*)",
+         "dest": "online_learning_management_portal/wsgi.py"
+       }
+     ]
+ }
