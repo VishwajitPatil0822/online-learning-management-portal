@@ -8,4 +8,3 @@ setuptools==80.0.0
 sqlparse==0.5.2
 typing_extensions==4.13.2
 tzdata==2024.2
-vercel-wsgi==0.5.3
