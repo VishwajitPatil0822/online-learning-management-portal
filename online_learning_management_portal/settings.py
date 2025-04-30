@@ -20,10 +20,6 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-066gu_9!mahk%opnu*%mjm1i90%!!6h!$9&h=z5r8#^wy1r(7#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -127,6 +123,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_URL = '/medias/'
 MEDIA_ROOT = BASE_DIR / "medias"
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
